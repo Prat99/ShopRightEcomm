@@ -1,25 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import Header from "./components/Header/Header";
+import PLP from "./components/PLP/PLP";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { Container } from "@mui/material";
+import Home from "./components/Home/Home";
+
+// import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Root } from "./routes/root";
+
+// const router = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: <Root></Root>,
+//   },
+// ]);
 
 function App() {
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: "#556cd6",
+      },
+      secondary: {
+        main: "#19857b",
+      },
+    },
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Container>
+        <Header />
+        <Root />
+      </Container>
+    </ThemeProvider>
   );
 }
 
