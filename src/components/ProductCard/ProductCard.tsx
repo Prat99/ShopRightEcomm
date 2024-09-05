@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { IProductItem } from "../../types";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../../reducers/cartReducer";
+import { addToCart } from "../../reducers/cartSlice";
 
 const ProductCard = styled(Card)`
   width: 250px; /* Adjust width as needed */
@@ -38,7 +38,7 @@ const ProductActions = styled("div")`
 `;
 
 const ProductItem: React.FC<IProductItem> = ({ title, image, price, id }) => {
-  console.log("image ==>", image);
+  // console.log("image ==>", image);
   const dispatch = useDispatch();
 
   const addToCartHandler = () => {
@@ -54,12 +54,20 @@ const ProductItem: React.FC<IProductItem> = ({ title, image, price, id }) => {
       </CardContent>
       <ProductActions>
         <IconButton aria-label="Add to cart">
-          <Button size="small" variant="outlined" onClick={addToCartHandler}>
+          <Button
+            size="small"
+            variant="outlined"
+            onClick={addToCartHandler}
+            disableRipple={true}
+          >
             Add to cart
           </Button>
         </IconButton>
-        <IconButton aria-label="View details">
-          <Button size="small" variant="outlined">
+        <IconButton
+          aria-label="View details"
+          sx={{ "&:hover": { backgroundColor: "inherit" } }}
+        >
+          <Button size="small" variant="outlined" disableRipple={true}>
             View details
           </Button>
         </IconButton>

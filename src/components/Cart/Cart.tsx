@@ -15,7 +15,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Link } from "react-router-dom";
-import { addToCart, deleteFromCart } from "../../reducers/cartReducer";
+import { addToCart, deleteFromCart } from "../../reducers/cartSlice";
 import { IProductItem } from "../../types";
 
 interface IBundledCartItem extends IProductItem {

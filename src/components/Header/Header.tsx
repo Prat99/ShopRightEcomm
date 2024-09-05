@@ -6,8 +6,14 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
 
 export default function Header() {
+  const cartItems = useSelector((state: RootState) => state.cart.cartItem);
+
+  console.log("cart items in header", cartItems);
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -28,7 +34,7 @@ export default function Header() {
             to="/cart"
           >
             <ShoppingCartIcon />
-            Cart
+            Cart<span>({cartItems?.length ? cartItems.length : null})</span>
           </IconButton>
         </Toolbar>
       </AppBar>

@@ -1,24 +1,37 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import Header from "./components/Header/Header";
-import PLP from "./components/PLP/PLP";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Container } from "@mui/material";
-import Home from "./components/Home/Home";
+import "./App.css";
+import Header from "./components/Header/Header";
 
-// import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Root } from "./routes/root";
-
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <Root></Root>,
-//   },
-// ]);
 
 function App() {
   const theme = createTheme({
+    components: {
+      MuiIconButton: {
+        styleOverrides: {
+          root: {
+            "&:hover": {
+              backgroundColor: "inherit",
+            },
+          },
+        },
+      },
+      MuiButtonBase: {
+        defaultProps: {
+          disableRipple: true,
+        },
+        styleOverrides: {
+          root: {
+            "&:hover": {
+              backgroundColor: "inherit",
+              color: "inherit",
+            },
+          },
+        },
+      },
+    },
     palette: {
       primary: {
         main: "#556cd6",
