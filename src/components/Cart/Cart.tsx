@@ -35,7 +35,7 @@ const Cart = () => {
   };
 
   const removeHandler = (id: number) => {
-    dispatch(deleteFromCart({ id }));
+    dispatch(deleteFromCart({ id })); //
   };
 
   const bundledCart = useMemo(() => {
@@ -49,8 +49,6 @@ const Cart = () => {
       return ac;
     }, [] as IBundledCartItem[]);
   }, [cartItems]);
-
-  console.log("cart value in cart ==>", cartItems);
 
   return (
     <div>

@@ -32,14 +32,10 @@ const Checkout = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) =>
-    console.log("form  data ==>", data);
-
-  return (
+  const onSubmit: SubmitHandler<Inputs> = (data) => (
     <Stack>
       <Typography variant="h6">Delivery Address</Typography>
 

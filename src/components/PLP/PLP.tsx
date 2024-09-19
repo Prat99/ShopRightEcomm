@@ -11,24 +11,10 @@ const PLP = () => {
   const dispatch = useDispatch();
   const products = useSelector((state: RootState) => state.products.products);
   const loading = useSelector((state: RootState) => state.products.loading);
-  // const [products, setProducts] = useState<Array<IProductItem>>([]);
 
-  console.log("value of products ==>", products, loading);
-
-  // useEffect(() => {
-  //   const fetchProducts = async () => {
-  //     const response = await fetch("https://fakestoreapi.com/products");
-  //     const data = await response.json();
-  //     console.log("data ==>", data);
-  //     setProducts(data);
-  //   };
-  //   fetchProducts();
-  // }, []);
+  // console.log("value of products ==>", products, loading);
 
   useEffect(() => {
-    console.log("inside useEffect");
-    // dispatch({ type: "GET_PRODUCTS" });
-    console.log("action returned ==>", getProducts());
     dispatch(getProducts());
   }, []);
 
@@ -45,7 +31,7 @@ const PLP = () => {
       },
       {}
     );
-  }, [products, loading]);
+  }, [products]);
 
   if (loading) {
     return <p>Loading...</p>;

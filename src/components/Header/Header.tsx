@@ -12,8 +12,6 @@ import { RootState } from "../../store/store";
 export default function Header() {
   const cartItems = useSelector((state: RootState) => state.cart.cartItem);
 
-  console.log("cart items in header", cartItems);
-
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">

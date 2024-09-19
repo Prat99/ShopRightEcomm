@@ -1,19 +1,20 @@
-import { call, put, takeEvery, takeLatest } from "redux-saga/effects";
+import { call, put, takeEvery } from "redux-saga/effects";
+import { dummyData } from "../dummyData";
 import {
   getProductsListFailure,
   getProductsListSuccess,
 } from "../reducers/productsSlice";
 
-// Worker saga will be fired on USER_FETCH_REQUESTED actions
-
 async function fetchProductsApi() {
-  // const  fetch("https://fakestoreapi.com/products")
-  //   .then((response) => ({ response: response.json() }))
-  //   .catch((error) => ({ error }));
-  const response = await fetch("https://fakestoreapi.com/products");
-  const data = await response.json();
-  console.log("data ==>", data);
-  return data;
+  // const response = await fetch("https://fakestoreapi.com/products");
+  // const data = await response.json();
+  // return data;
+
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(dummyData);
+    }, 2000);
+  });
 }
 
 function* fetchProducts({ payload }: any): any {
@@ -25,8 +26,6 @@ function* fetchProducts({ payload }: any): any {
   }
 }
 
-// Starts fetchUser on each dispatched USER_FETCH_REQUESTED action
-// Allows concurrent fetches of user
 export function* productsSaga() {
   yield takeEvery("products/getProducts", fetchProducts);
 }

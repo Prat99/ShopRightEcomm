@@ -46,20 +46,21 @@ const ProductItem: React.FC<IProductItem> = ({ title, image, price, id }) => {
   };
 
   return (
-    <ProductCard>
-      <CardMedia component="img" height="194" image={image} alt="Paella dish" />
+    <ProductCard sx={{ justifyContent: "flex-end" }}>
+      <CardMedia
+        component="img"
+        height="194"
+        image={image}
+        alt="Paella dish"
+        sx={{ height: "auto" }}
+      />
       <CardContent>
         <ProductTitle variant="h6">{title}</ProductTitle>
         <Typography variant="h6">${price}</Typography>
       </CardContent>
       <ProductActions>
-        <IconButton aria-label="Add to cart">
-          <Button
-            size="small"
-            variant="outlined"
-            onClick={addToCartHandler}
-            disableRipple={true}
-          >
+        <IconButton aria-label="Add to cart" onClick={addToCartHandler}>
+          <Button size="small" variant="outlined" disableRipple={true}>
             Add to cart
           </Button>
         </IconButton>

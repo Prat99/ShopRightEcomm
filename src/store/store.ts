@@ -1,12 +1,13 @@
 import { applyMiddleware } from "redux";
-import { configureStore } from "@reduxjs/toolkit";
+import { Tuple, configureStore } from "@reduxjs/toolkit";
 import { CartSlice } from "../reducers/cartSlice";
 import { ProductsSlice } from "../reducers/productsSlice";
 import createSagaMiddleware from "redux-saga";
 import { rootSaga } from "../rootSaga";
+import { loggerMiddleware } from "../customMiddleware/loggerMiddlware";
 
 const sagaMiddleware = createSagaMiddleware();
-const middleware = [sagaMiddleware];
+const middleware = [sagaMiddleware, loggerMiddleware];
 
 export const store = configureStore({
   reducer: {
